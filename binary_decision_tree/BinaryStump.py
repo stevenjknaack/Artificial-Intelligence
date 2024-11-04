@@ -138,34 +138,36 @@ class binary_stump:
                 min_con_split_value = value
         
         self.split_value = min_con_split_value
-            
-# problem methods
-feature_m = get_feature_matrix(INPUT_FILE_NAME)
-stump = binary_stump(feature_m, VALUE_INDEX, LABEL_INDEX)
-
-def p1_q1() :
-    print(get_value_count(feature_m, LABEL_INDEX))
-
-def p1_q2() :
-    print(str(round(entropy(feature_m, LABEL_INDEX), 4)))
-
-def p1_q3() :
-    split = split_around(feature_m, VALUE_INDEX, stump.split_value)
-
-    neg_value_count = get_value_count(split[0], LABEL_INDEX)
-    pos_value_count = get_value_count(split[1], LABEL_INDEX)
-
-    print(str(neg_value_count[BENIGN]) + ',' + str(pos_value_count[BENIGN]) + ',' + str(neg_value_count[MALIGNANT]) + ',' + str(pos_value_count[MALIGNANT]))
 
 
-def p1_q4() :
-    print(round(entropy(feature_m, LABEL_INDEX) - conditional_entropy_for_split(feature_m, LABEL_INDEX, VALUE_INDEX, stump.split_value), 4))
+if __name__ == '__main__':
+    # problem methods
+    feature_m = get_feature_matrix(INPUT_FILE_NAME)
+    stump = binary_stump(feature_m, VALUE_INDEX, LABEL_INDEX)
+
+    def p1_q1() :
+        print(get_value_count(feature_m, LABEL_INDEX))
+
+    def p1_q2() :
+        print(str(round(entropy(feature_m, LABEL_INDEX), 4)))
+
+    def p1_q3() :
+        split = split_around(feature_m, VALUE_INDEX, stump.split_value)
+
+        neg_value_count = get_value_count(split[0], LABEL_INDEX)
+        pos_value_count = get_value_count(split[1], LABEL_INDEX)
+
+        print(str(neg_value_count[BENIGN]) + ',' + str(pos_value_count[BENIGN]) + ',' + str(neg_value_count[MALIGNANT]) + ',' + str(pos_value_count[MALIGNANT]))
 
 
-# method calls
-p1_q1() 
-p1_q2()
-p1_q3()
-p1_q4()
+    def p1_q4() :
+        print(round(entropy(feature_m, LABEL_INDEX) - conditional_entropy_for_split(feature_m, LABEL_INDEX, VALUE_INDEX, stump.split_value), 4))
+
+
+    # method calls
+    p1_q1() 
+    p1_q2()
+    p1_q3()
+    p1_q4()
 
 

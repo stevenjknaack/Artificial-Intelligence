@@ -492,34 +492,35 @@ class binary_decision_tree :
             
         return int(node.classification)
             
-# problem methods
-feature_m = get_feature_matrix(INPUT_FILE_NAME)
-tree = binary_decision_tree(feature_m, VALUE_INDEXES, LABEL_INDEX, TRAIN_TYPE, MAX_DEPTH)
+if __name__ == '__main__':
+    # problem methods
+    feature_m = get_feature_matrix(INPUT_FILE_NAME)
+    tree = binary_decision_tree(feature_m, VALUE_INDEXES, LABEL_INDEX, TRAIN_TYPE, MAX_DEPTH)
 
-def p2_q1() :
-    output_readable_tree(tree, OUTPUT_FILE_NAME)
-    #print(feature_m)
+    def p2_q1() :
+        output_readable_tree(tree, OUTPUT_FILE_NAME)
+        #print(feature_m)
 
-def p2_q2() :
-    pass
+    def p2_q2() :
+        pass
 
-def p2_q3() :
-    test_m = get_test_matrix('test.csv')
-    
-    classifications = []
-    for feature in test_m :
-        classification = tree.classify(feature)
-        classifications.append(classification)
-    
-    print(classifications)
+    def p2_q3() :
+        test_m = get_test_matrix('test.csv')
+        
+        classifications = []
+        for feature in test_m :
+            classification = tree.classify(feature)
+            classifications.append(classification)
+        
+        print(classifications)
 
-def p2_q4() :
-    pass
+    def p2_q4() :
+        pass
 
-# method calls
-p2_q1() 
-#p2_q2()
-p2_q3()
-#p2_q4()
+    # method calls
+    p2_q1() 
+    #p2_q2()
+    p2_q3()
+    #p2_q4()
 
 
